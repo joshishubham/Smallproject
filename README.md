@@ -1,2 +1,1 @@
-# node-authentication
 # Smallproject
