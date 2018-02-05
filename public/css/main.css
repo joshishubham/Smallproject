@@ -1,0 +1,59 @@
+.simple-drop{
+
+    background-color: #333;
+    font-family: Arial;
+    width: 100%;
+    position: fixed;
+}
+
+.dropdown{
+
+    margin-left: 32cm;  
+    margin-top: -1.2cm;
+}
+
+.simple-drop a{
+
+    color: white;
+    padding: 16px 16px;
+    font-size: 16px;
+    line-height: 1.2cm;
+    text-align: center;
+}
+
+.simple-drop a:hover{
+    
+    color: white;
+    text-decoration: none;
+    background-color: blue;
+
+}
+
+.dropdown-menu a{
+
+    color: black;
+    font-size: 16px;
+    padding: 4px 1px;
+    text-align: center;
+
+}
+
+.dropdown-menu a:hover{
+
+    color: black;
+    text-decoration: none;
+    background-color: #cccccc;
+    
+}
+
+.btn{
+
+	margin-left: -10cm;
+	margin-top: 14cm;
+}
+
+.image{
+
+    margin-left: 9cm;
+    margin-top: -2cm;
+}

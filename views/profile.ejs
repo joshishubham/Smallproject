@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Profile</title>
+	
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/js/formValidation.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/js/framework/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="./css/profile.css">
+  <script type="text/javascript" src = "./js/sign.js"></script>
+  <script type="text/javascript" src = "./js/profile.js"></script>
+  <script src="/reload/reload.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+<div class = "simple-drop">
+ 
+<a href="/home">Home</a>
+<a href="./question">Question</a>
+<a href="./result">Result</a>
+
+
+<div class="container-fluid">
+<ul class="nav navbar-nav">
+
+<li class="dropdown">
+
+<a class="dropdown-toggle" data-toggle="dropdown"><span class = "glyphicon glyphicon-menu-down"></span></a>
+
+<ul class="dropdown-menu pull-right" role="menu">
+
+<li><a href="./profile">Profile</a></li>
+<li><a href="./logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+</ul>
+
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- Images  -->
+
+ <div class="container">
+  <div class="well" id="b">
+  	<img src="./images/IMG_20161021_124458.jpg" id="a" onmouseover="ima()" /><br><br><br>
+  	<input type="file">
+</div>
+
+<!-- Form -->
+
+<form id = "validtation">
+<div class="col-xs-4">
+
+<p>Name : Shubham joshi <span class="glyphicon glyphicon-pencil"  onclick="name()" id="na"></span></p>
+
+<div class="form-group" id="name" style="display: none;">
+
+<label>Name :</label><br>
+<input type="text" name="Name"  class="form-control" placeholder="Enter your name."><br>
+<button type = "submit" class="btn btn-primary">Save</button> 
+<span class="glyphicon glyphicon-remove-sign" onclick = "my()"></span>
+
+</div><hr>
+
+<p>Username : shub@ <span class="glyphicon glyphicon-pencil" onclick="user()" id="use"></span></p>
+
+<div class="form-group" id="username" style="display: none;">
+
+<label>Username : </label><br>
+<input type="text" name="Username" class="form-control" placeholder="Enter your username." /><br>
+<button type = "submit" class="btn btn-primary">Save</button> 
+<span class="glyphicon glyphicon-remove-sign" onclick = "wrong()"></span>
+
+</div><hr>
+
+<p>Email : shubhamjoshi844@gmail.com </p><span class="glyphicon glyphicon-pencil" onclick="email()" id="em"></span></p>
+
+<div class="form-group" id="email" style="display: none;">
+
+<label>Email :</label><br>
+<input type="email" name="Email" class="form-control" placeholder="Enter your email." /><br>
+<button type = "submit" class="btn btn-primary">Save</button> 
+<span class="glyphicon glyphicon-remove-sign" onclick = "mywrong()"></span>
+
+</div><hr>
+
+<p>Password <span class="glyphicon glyphicon-pencil" onclick="pass()" id="pas"></span></p>
+
+<div class="form-group" id="password" style="display: none;">
+
+<label>Enter Password :</label><br>
+<input type="password" name="Password" class="form-control" placeholder="Enter your password." ><br>
+
+<label>Re-Enter-Password :</label><br>
+<input type="password" name="Confirm" class="form-control"  placeholder="Re-Enter-Password" ><br>
+<button type = "submit" class="btn btn-primary">Save</button> 
+<span class="glyphicon glyphicon-remove-sign" onclick = "key()"></span>
+
+</div>
+
+</div>
+</form>
+</div> 
+
+<script>
+
+     //Images
+     function ima() {
+     	  
+     	  document.getElementById('b').innerHTML += "<input type = 'file'>"
+     }
+
+</script>
+</body>
+</html>
