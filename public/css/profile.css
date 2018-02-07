@@ -55,17 +55,39 @@
    background-color: white;
    border: 4px solid black;
    margin-left: 22cm;
-   margin-top: 1cm;
+   margin-top: 2cm;
    width: 7cm;
    height: 8cm;
+
+}
+
+.glyphicon-camera{
+
+    background-color: black;
+    width: 6.9cm;
+    height: 1.8cm;
+    margin-left: -.51cm;
+    margin-top: 5.5cm;
+    color: white;
+    opacity: 0.4; 
+    cursor: pointer;
+    display: block; 
+    line-height: 1.7cm;
+    font-size: 20px;   
 }
 
 img{
 
     width: 6cm;
     height: 7cm;
-    margin-left: -.1cm;
-    margin-top: -.1cm;
+    margin-left: 22.5cm;
+    margin-top: -9.5cm;
+    
+}
+
+.glyphicon-camera:hover{
+
+    opacity: 0.8;
 }
 
 form{
@@ -80,29 +102,10 @@ form{
     position: inherit;
 }
 
-#na{
+.glyphicon-edit{
 
     margin-left: 10cm;
-    top: -.8cm;
-}
-
-#use{
-
-    margin-left: 10cm;
-    top: -.8cm;
-}
-
-#em{
-
-    margin-left: 10cm;
-    top: -.8cm;
-}
-
-#pas{
-
-    margin-left: 10cm;
-    top: -.8cm;
-
+    top: -.5cm;
 }
 
 .glyphicon-remove-sign{

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+  
 	<title>Profile</title>
 	
   <meta charset="utf-8">
@@ -51,17 +51,15 @@
 <!-- Images  -->
 
  <div class="container">
-  <div class="well" id="b">
-  	<img src="./images/IMG_20161021_124458.jpg" id="a" onmouseover="ima()" /><br><br><br>
-  	<input type="file">
-</div>
-
+  <div class="well" onmouseover ="onoverimage()" onmouseout="onmoutimage()"><span class="glyphicon glyphicon-camera" id="image"> Upload profile picture.</span> </div>
+  	<img src="./images/IMG_20161021_124458.jpg" />
+    
 <!-- Form -->
 
 <form id = "validtation">
 <div class="col-xs-4">
 
-<p>Name : Shubham joshi <span class="glyphicon glyphicon-pencil"  onclick="name()" id="na"></span></p>
+<p>Name : Shubham joshi <span class="glyphicon glyphicon-edit"  onclick="name()" id="na"></span></p>
 
 <div class="form-group" id="name" style="display: none;">
 
@@ -72,7 +70,7 @@
 
 </div><hr>
 
-<p>Username : shub@ <span class="glyphicon glyphicon-pencil" onclick="user()" id="use"></span></p>
+<p>Username : shub@ <span class="glyphicon glyphicon-edit" onclick="user()" id="use"></span></p>
 
 <div class="form-group" id="username" style="display: none;">
 
@@ -83,7 +81,7 @@
 
 </div><hr>
 
-<p>Email : shubhamjoshi844@gmail.com </p><span class="glyphicon glyphicon-pencil" onclick="email()" id="em"></span></p>
+<p>Email : shubhamjoshi844@gmail.com </p><span class="glyphicon glyphicon-edit" onclick="email()" id="em"></span></p>
 
 <div class="form-group" id="email" style="display: none;">
 
@@ -94,7 +92,7 @@
 
 </div><hr>
 
-<p>Password <span class="glyphicon glyphicon-pencil" onclick="pass()" id="pas"></span></p>
+<p>Password <span class="glyphicon glyphicon-edit" onclick="pass()" id="pas"></span></p>
 
 <div class="form-group" id="password" style="display: none;">
 
@@ -115,9 +113,16 @@
 <script>
 
      //Images
-     function ima() {
+     function onoverimage() {
      	  
-     	  document.getElementById('b').innerHTML += "<input type = 'file'>"
+     	   document.getElementById('image').style.display = "block"
+     
+     }
+
+      function onmoutimage() {
+        
+         document.getElementById('image').style.display = "none"
+     
      }
 
 </script>
