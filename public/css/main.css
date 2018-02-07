@@ -2,14 +2,18 @@
 
     background-color: #333;
     font-family: Arial;
-    width: 100%;
+    width: 101%;
+    height: 1.32cm;
+    margin-top: -.03cm;
+    margin-left: -.1cm;
     position: fixed;
+    line-height: 1.3cm; 
 }
 
 .dropdown{
 
     margin-left: 32cm;  
-    margin-top: -1.2cm;
+    margin-top: -1.31cm;
 }
 
 .simple-drop a{
@@ -17,7 +21,6 @@
     color: white;
     padding: 16px 16px;
     font-size: 16px;
-    line-height: 1.2cm;
     text-align: center;
 }
 
