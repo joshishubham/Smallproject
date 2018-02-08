@@ -51,9 +51,11 @@
 <!-- Images  -->
 
  <div class="container">
-  <div class="well" onmouseover ="onoverimage()" onmouseout="onmoutimage()"><span class="glyphicon glyphicon-camera" id="image"> Upload profile picture.</span> </div>
-  	<img src="./images/IMG_20161021_124458.jpg" />
-    
+   <div class="well" onmouseover ="onoverimage()" onmouseout="onmoutimage()">
+      <input type="file" id = "file">
+        <span class="glyphicon glyphicon-camera" id="image" onclick="image()"> Upload profile picture.</span></div>
+     	<img src="./images/IMG_20161021_124458.jpg" />
+
 <!-- Form -->
 
 <form id = "validtation">
@@ -61,7 +63,7 @@
 
 <p>Name : Shubham joshi <span class="glyphicon glyphicon-edit"  onclick="name()" id="na"></span></p>
 
-<div class="form-group" id="name" style="display: none;">
+<div class="form-group" id="name">
 
 <label>Name :</label><br>
 <input type="text" name="Name"  class="form-control" placeholder="Enter your name."><br>
@@ -72,7 +74,7 @@
 
 <p>Username : shub@ <span class="glyphicon glyphicon-edit" onclick="user()" id="use"></span></p>
 
-<div class="form-group" id="username" style="display: none;">
+<div class="form-group" id="username">
 
 <label>Username : </label><br>
 <input type="text" name="Username" class="form-control" placeholder="Enter your username." /><br>
@@ -81,9 +83,9 @@
 
 </div><hr>
 
-<p>Email : shubhamjoshi844@gmail.com </p><span class="glyphicon glyphicon-edit" onclick="email()" id="em"></span></p>
+<p>Email : shubhamjoshi844@gmail.com <span class="glyphicon glyphicon-edit" onclick="email()" id="em"></span></p>
 
-<div class="form-group" id="email" style="display: none;">
+<div class="form-group" id="email">
 
 <label>Email :</label><br>
 <input type="email" name="Email" class="form-control" placeholder="Enter your email." /><br>
@@ -94,7 +96,7 @@
 
 <p>Password <span class="glyphicon glyphicon-edit" onclick="pass()" id="pas"></span></p>
 
-<div class="form-group" id="password" style="display: none;">
+<div class="form-group" id="password">
 
 <label>Enter Password :</label><br>
 <input type="password" name="Password" class="form-control" placeholder="Enter your password." ><br>
@@ -109,22 +111,5 @@
 </div>
 </form>
 </div> 
-
-<script>
-
-     //Images
-     function onoverimage() {
-     	  
-     	   document.getElementById('image').style.display = "block"
-     
-     }
-
-      function onmoutimage() {
-        
-         document.getElementById('image').style.display = "none"
-     
-     }
-
-</script>
 </body>
 </html>

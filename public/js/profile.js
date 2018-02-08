@@ -64,4 +64,23 @@
               document.getElementById('pas').style.color = "black";
            }
 
+            //Images
+           function onoverimage() {
+              
+                document.getElementById('image').style.display = "block";
+                    
+           }
+
+            function onmoutimage() {
+              
+                document.getElementById('image').style.display = "none"
+           
+           }
+
+           function image() {
+             
+                document.getElementById('file').click();
+
+           }
+
 -->
