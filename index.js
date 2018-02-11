@@ -12,6 +12,7 @@ var app           = express();
 //Database, Routes &  Passport Files
 var crud          = require("./Database/data.js");
 var routes        = require('./Routes/route.js');
+var multer        = require('./Multer/multer.js')
 
 //mongoose connections
 mongoose.Promise = global.Promise;
@@ -34,6 +35,18 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+passport.serializeUser(function(user, done){
+   
+   done(null, user.id); 
+});
+
+passport.deserializeUser(function(id, done){
+   
+   crud.findById(id, function(err, user){
+       done(err, user);
+   });
+});
 
 //ejs Templates
 app.set('view engine', './views');

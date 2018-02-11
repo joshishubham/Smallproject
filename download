@@ -60,3 +60,24 @@
 </table>
 </form>
 </div> 
+
+
+app.post('/sign', function (req, res) {
+        
+   var data = new crud({
+
+      Name     : req.body.Name,
+      Username : req.body.Username,
+      Email    : req.body.Email,
+      Password : req.body.Password
+  });
+
+  crud.database(data, function (err, show) {
+        
+         if (err) throw err;
+  });
+
+        req.flash('msg', "You are successfully signup and now you can login");
+        res.redirect('/login');
+        console.log(data);
+});

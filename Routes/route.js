@@ -1,8 +1,8 @@
 //Node-modules
 var express       = require('express');
+var flash         = require('connect-flash');
 var passport      = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var flash         = require('connect-flash');
 var app           = express();
 
 //Database & Passport Files
@@ -37,14 +37,13 @@ app.get("/", function (req, res) {
     res.render('sign.ejs')
 });
 
-app.get("/drop", function (req, res) {
-   
-    res.render('drop.ejs')
-});
-
 app.get("/login", function (req, res) {
    
-    res.render('login.ejs', {message : req.flash("msg")})
+    res.render('login.ejs', {
+
+        message : req.flash("suc"), 
+        error   : req.flash('err') 
+    });
 });
 
 app.get("/profile", function (req, res) {
@@ -60,45 +59,97 @@ app.get('/logout', function (req, res) {
 });
 
 //Sign-up Post routes.
-app.post('/sign', function (req, res) {
-        
-   var data = new crud({
+app.post('/sign', passport.authenticate('signup', {
 
-      Name     : req.body.Name,
-      Username : req.body.Username,
-      Email    : req.body.Email,
-      Password : req.body.Password
-  });
+    successRedirect: 'login',
+    failureRedirect: '/',
+    failureFlash: true
 
-  crud.database(data, function (err, show) {
-        
-         if (err) throw err;
-  });
-
-        req.flash('msg', "You are successfully signup and now you can login");
-        res.redirect('/login');
-        console.log(data);
-});
+}));
 
 //Log in post routes.
-passport.serializeUser(function(user, done){
-   
-   done(null, user.id); 
-});
-
-passport.deserializeUser(function(id, done){
-   
-   crud.findById(id, function(err, user){
-       done(err, user);
-   });
-});
-
-app.post('/login', passport.authenticate('local', {
+app.post('/login', passport.authenticate('login', {
          
          successRedirect: '/home',
          failureRedirect: '/login',
-         failureFlash: true 
+         failureFlash   : true 
    })
 );
+
+// //Signup authentication
+passport.use('signup', new LocalStrategy({
+
+    usernameField: "Email",
+    passwordField: "Password",
+    passReqToCallback: true,
+
+}, function(req, Email, Name,Password, done) {
+
+    console.log(req      === arguments[0]); // true
+    console.log(Email    === arguments[1]); // true
+    console.log(Password === arguments[2]); // true
+    console.log(done     === arguments[3]); // true
+    console.log(Name     === arguments[4]); // true
+
+
+    process.nextTick(function() {
+
+        crud.findOne({ Email: Email }, function(err, user) {
+
+            if (err) {
+                return done(err);
+            }
+
+            if (user) {
+                return done(null, false, console.log("Email is already used"));
+            }
+
+            var data = new crud();
+
+            data.Password = Password;
+            data.Email    = Email;
+            data.Name     = Name;
+
+            data.save(function(err) {
+                if (err) throw err;
+                console.log(data)
+                return done(null, data, console.log("Successfully"));
+            })
+        })
+    })
+}));
+
+
+// //Login authentication
+// passport.use('login', new LocalStrategy ({
+
+//       usernameField : "Email",
+//       passwordField : "Password"
+
+// }, function (Email, Password, done, req) {
+
+//         crud.findOne({Email : Email}, function (err, user) {
+
+//               if (err) 
+
+//                 return done(err);
+
+//               if (!user) {
+
+//                 return done(null, false, console.log("Incorrect Email"));
+              
+//               }
+
+//               // if (!user.validPassword(Password)) {
+
+//               //   return done(null, false, console.log("Incorrect Password"));
+
+//               // }
+
+//               return done(null, user)
+//         })
+// }
+
+// ))
 
 module.exports = app;

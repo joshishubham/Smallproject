@@ -58,6 +58,7 @@
    margin-top: 2cm;
    width: 7cm;
    height: 8cm;
+   word-spacing: -15px;
 
 }
 
@@ -88,6 +89,7 @@ img{
 .glyphicon-camera:hover{
 
     opacity: 0.8;
+    word-spacing: -15px
 }
 
 form{
