@@ -61,23 +61,94 @@
 </form>
 </div> 
 
+passport.use('signup', new LocalStrategy({
 
-app.post('/sign', function (req, res) {
-        
-   var data = new crud({
+    usernameField: "Email",
+    passwordField: "Password",
+    // emailField   : "Email",
+    // confirmField : "Confirm",
+    // namwField    : "Name",
+    passReqToCallback: true
 
-      Name     : req.body.Name,
-      Username : req.body.Username,
-      Email    : req.body.Email,
-      Password : req.body.Password
-  });
+}, function(req, Email, Password, /*Username, Confirm,*/ Name, done) {
+     
+      // var Name     = req.body.Name;
+      // var Username = req.body.Username;
+      // var Confirm  = req.body.Confirm;
+    
+    //console.log(Name     === arguments[4]); // true
+    //console.log(Username === arguments[4]); // true
+    console.log(req      === arguments[0]); // true
+    console.log(Email    === arguments[1]); // true
+    console.log(Password === arguments[2]); // true
+    //console.log(Confirm  === arguments[4]); // true
+    console.log(done     === arguments[3]); // true
+    
 
-  crud.database(data, function (err, show) {
-        
-         if (err) throw err;
-  });
+    process.nextTick(function() {
 
-        req.flash('msg', "You are successfully signup and now you can login");
-        res.redirect('/login');
-        console.log(data);
-});
+        crud.findOne({ Email: Email }, function(err, user) {
+
+            if (err) {
+                return done(err);
+            }
+
+            if (user) {
+                return done(null, false, console.log("Email is already used"));
+            }
+
+            var data = new crud();
+
+            //data.Confirm  = Confirm;
+            data.Password = Password;
+            data.Email    = Email;
+            //data.Username = Username;
+            //data.Name     = Name;
+
+            data.save(function(err) {
+                if (err) throw err;
+                return done(null, data, console.log(data));
+            })
+        })
+    })
+}));
+
+//Login authentication
+passport.use('login', new LocalStrategy ({
+
+      usernameField : "Email",
+      passwordField : "Password"
+
+}, function (Email, Password, done, req) {
+    
+
+    console.log(req      === arguments[0]); // true
+    console.log(Email    === arguments[1]); // true
+    console.log(Password === arguments[2]); // true
+    console.log(done     === arguments[3]); // true
+    
+
+        crud.findOne({ Email:Email }, function (err, user) {
+
+              if (err) 
+
+                return done(err);
+
+              if (!user) {
+
+                //return done(null, false, console.log("Incorrect Email"));
+                return done(null, false, req.flash("err", "Incorrect Email"));
+                
+              }
+
+              // if (!user.validPassword(Password)) {
+
+              //   return done(null, false, console.log("Incorrect Password"));
+
+              // }
+
+              return done(null, user)
+        })
+}
+
+))

@@ -6,6 +6,7 @@ var passport      = require('passport');
 var flash         = require('connect-flash');
 var cookieParser  = require('cookie-parser');
 var session       = require('express-session');
+var morgan        = require('morgan');
 var bp            = require('body-parser');
 var app           = express();
 
@@ -22,6 +23,7 @@ mongoose.connect("mongodb://localhost:27017/Data", {
 });
 
 //middleware 
+//app.use(morgan('dev'));
 app.use(flash());
 app.use(bp.json());
 app.use(bp.urlencoded({extended : true}));

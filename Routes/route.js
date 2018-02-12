@@ -34,7 +34,11 @@ app.get('/answer', function (req, res) {
 
 app.get("/", function (req, res) {
    
-    res.render('sign.ejs')
+    res.render('sign.ejs', {
+
+        message : req.flash("suc"), 
+        error   : req.flash('err') 
+    });
 });
 
 app.get("/login", function (req, res) {
@@ -79,77 +83,82 @@ app.post('/login', passport.authenticate('login', {
 // //Signup authentication
 passport.use('signup', new LocalStrategy({
 
-    usernameField: "Email",
-    passwordField: "Password",
-    passReqToCallback: true,
+       usernameField : "Email",
+       passwordField : "Password",
+       passReqToCallback: true
+}, 
+   function (req, Email, Password, /*Name,*/ done) {
+      
+    // console.log(req      === arguments[0]); // true
+    // console.log(Email    === arguments[1]); // true
+    // console.log(Password === arguments[2]); // true
+    // console.log(done     === arguments[3]); // true
 
-}, function(req, Email, Name,Password, done) {
+      crud.findOne({Email:Email},function (err, user) {
+        
+         if (err) {
 
-    console.log(req      === arguments[0]); // true
-    console.log(Email    === arguments[1]); // true
-    console.log(Password === arguments[2]); // true
-    console.log(done     === arguments[3]); // true
-    console.log(Name     === arguments[4]); // true
+            return done(err);
+         }
 
+         if (user) {
 
-    process.nextTick(function() {
+            return done(null, false, req.flash("err", "Email is already used"));
+         }
 
-        crud.findOne({ Email: Email }, function(err, user) {
+          else{
 
-            if (err) {
-                return done(err);
-            }
+               var data = new crud();
 
-            if (user) {
-                return done(null, false, console.log("Email is already used"));
-            }
+                 data.Email    = Email;
+                 data.Password = Password;
+                 //data.Name     = Name;
 
-            var data = new crud();
+                   data.save(function (err) {
+                      
+                      if (err) 
 
-            data.Password = Password;
-            data.Email    = Email;
-            data.Name     = Name;
+                        throw err;
 
-            data.save(function(err) {
-                if (err) throw err;
-                console.log(data)
-                return done(null, data, console.log("Successfully"));
-            })
-        })
-    })
-}));
+                      return done(null, data, req.flash("suc", "You have successfully sign up and can you now login"));
+                })
+          }
+   
+     });
+   }
+));
+//Login authentication
+passport.use('login', new LocalStrategy ({
+       
+       usernameField : "Email",
+       passwordField : "Password",
+       passReqToCallback: true 
+},
+   function(req, Email, Password,done){
 
+      crud.findOne({Email:Email}, function (err, user) {
 
-// //Login authentication
-// passport.use('login', new LocalStrategy ({
+           if (err) {
 
-//       usernameField : "Email",
-//       passwordField : "Password"
+              return done(err)
 
-// }, function (Email, Password, done, req) {
+           }
 
-//         crud.findOne({Email : Email}, function (err, user) {
+           if (!user) {
 
-//               if (err) 
+              //return done(null, false, console.log("Invalid Email"));
+              return done(null, false, req.flash("err", "Invalid Email"));
+           }
 
-//                 return done(err);
+           // if (!user.validPassword(Password)) {
 
-//               if (!user) {
+           //     return done(null, false, console.log("Invalid Password"));
+           //      return done(null, false, req.flash("err", "Invalid Email"))
+           // }
 
-//                 return done(null, false, console.log("Incorrect Email"));
-              
-//               }
-
-//               // if (!user.validPassword(Password)) {
-
-//               //   return done(null, false, console.log("Incorrect Password"));
-
-//               // }
-
-//               return done(null, user)
-//         })
-// }
-
-// ))
+             return done(null, user);
+      })
+   }
+))
 
 module.exports = app;
