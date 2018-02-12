@@ -35,8 +35,7 @@ app.get('/answer', function (req, res) {
 app.get("/", function (req, res) {
    
     res.render('sign.ejs', {
-
-        message : req.flash("suc"), 
+      
         error   : req.flash('err') 
     });
 });
@@ -65,100 +64,19 @@ app.get('/logout', function (req, res) {
 //Sign-up Post routes.
 app.post('/sign', passport.authenticate('signup', {
 
-    successRedirect: 'login',
-    failureRedirect: '/',
-    failureFlash: true
+        successRedirect: 'login',
+        failureRedirect: '/',
+        failureFlash: true
 
 }));
 
 //Log in post routes.
 app.post('/login', passport.authenticate('login', {
          
-         successRedirect: '/home',
-         failureRedirect: '/login',
-         failureFlash   : true 
+        successRedirect: '/home',
+        failureRedirect: '/login',
+        failureFlash   : true 
    })
 );
-
-// //Signup authentication
-passport.use('signup', new LocalStrategy({
-
-       usernameField : "Email",
-       passwordField : "Password",
-       passReqToCallback: true
-}, 
-   function (req, Email, Password, /*Name,*/ done) {
-      
-    // console.log(req      === arguments[0]); // true
-    // console.log(Email    === arguments[1]); // true
-    // console.log(Password === arguments[2]); // true
-    // console.log(done     === arguments[3]); // true
-
-      crud.findOne({Email:Email},function (err, user) {
-        
-         if (err) {
-
-            return done(err);
-         }
-
-         if (user) {
-
-            return done(null, false, req.flash("err", "Email is already used"));
-         }
-
-          else{
-
-               var data = new crud();
-
-                 data.Email    = Email;
-                 data.Password = Password;
-                 //data.Name     = Name;
-
-                   data.save(function (err) {
-                      
-                      if (err) 
-
-                        throw err;
-
-                      return done(null, data, req.flash("suc", "You have successfully sign up and can you now login"));
-                })
-          }
-   
-     });
-   }
-));
-//Login authentication
-passport.use('login', new LocalStrategy ({
-       
-       usernameField : "Email",
-       passwordField : "Password",
-       passReqToCallback: true 
-},
-   function(req, Email, Password,done){
-
-      crud.findOne({Email:Email}, function (err, user) {
-
-           if (err) {
-
-              return done(err)
-
-           }
-
-           if (!user) {
-
-              //return done(null, false, console.log("Invalid Email"));
-              return done(null, false, req.flash("err", "Invalid Email"));
-           }
-
-           // if (!user.validPassword(Password)) {
-
-           //     return done(null, false, console.log("Invalid Password"));
-           //      return done(null, false, req.flash("err", "Invalid Email"))
-           // }
-
-             return done(null, user);
-      })
-   }
-))
 
 module.exports = app;
