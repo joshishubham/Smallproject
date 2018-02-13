@@ -16,7 +16,7 @@
   <script src="/reload/reload.js"></script>
   <script type="text/javascript" src = "./js/que.js"></script>
   
-<body>
+<body onload = "time()">
 
 <nav class="navbar navbar-inverse">
 <div class = "simple-drop">
@@ -46,9 +46,9 @@
 </nav>
 
 <div class="container">
-<h3 id="Time" onload = "my()">Time is : </h3><h4>Total = 100 Marks .</h4><hr>
+<h3 id="Time">Time is : </h3><h4>Total = 100 Marks .</h4><hr>
 
-<form>
+<form id = "form">
 
      <b><p>Question 1 : Which number comes next ? <br></p></b>
         
@@ -163,7 +163,7 @@
 
          </label><br><br><br>
 
-<a href="./result" id ="btn" onclick="check()" class="btn btn-success btn btn-lg"> Check Answer. </a> <button class="btn btn-info btn btn-lg">Reset.</button>
+<a href="./result" id ="btn" class="btn btn-success btn btn-lg"> Check Answer. </a> <button class="btn btn-info btn btn-lg">Reset.</button>
 
 </form> <br><br>
 </div><br>

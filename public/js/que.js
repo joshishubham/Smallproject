@@ -7,18 +7,27 @@
 
          } 
           
-          var a = 5
+          var a = -1;
 
-          function my() {
+          function time() {
           	  
-              a--
-                        	 	
-          	   document.getElementById('Time').innerHTML = 
-                  
-                  setTimeout("my()", 1000);
+            if (a < 59) {
+                
+                a++
 
-          	      	console.log(a);
-          
-         }
+                setTimeout("time()", 1000);
+
+                document.getElementById('Time').innerHTML = "Time "+": "+ a;
+            
+            }
+            
+             else {
+
+                    alert("Your time is over ")
+
+                   document.getElementById("form").reset();
+             
+             }          
+         } 
 
 -->

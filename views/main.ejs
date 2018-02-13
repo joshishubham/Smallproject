@@ -43,7 +43,31 @@
 </div>
 </div>
 </nav>
+<div>
 <img src="./images/important-questions.jpg" class = "image" />
-<a href="./question"><button class="btn btn-success"> Let's Start</button></a>
+</div>
+
+<h3>Notice -</h3>
+<div id = "check">
+
+	1 - You have only one minutes.<br>
+	2 - If your time has expired, your form will be automatically reset.<br><br>	 
+
+<p><input type="checkbox" onclick = "checkbox()"> Hope, you have carefully read this notice. </p>
+
+</div>
+
+<div>
+<a href="./question"><button class="btn btn-success" id = "btn" disabled> Let's Start</button></a>
+</div><br><br>
+<script> 
+
+	  function checkbox() {
+	  	     
+	  	   var a = document.getElementById('btn').disabled = false;
+
+	  }
+	
+</script>
 </body>
 </html>

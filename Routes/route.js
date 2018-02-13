@@ -10,22 +10,22 @@ var crud = require('../Database/data.js');
 var pass = require('../Passport/pass.js');
 
 //Question & answer routes
-app.get('/home', isLoggedIn, function (req, res) {
+app.get('/home', /*isLoggedIn,*/ function (req, res) {
     
     res.render('main.ejs')
 });
 
-app.get('/question', isLoggedIn,function (req, res) {
+app.get('/question', /*isLoggedIn,*/function (req, res) {
     
     res.render('qans.ejs')
 });
 
-app.get('/result', isLoggedIn,function (req, res) {
+app.get('/result', /*isLoggedIn,*/function (req, res) {
     
     res.render('result.ejs')
 });
 
-app.get('/answer', isLoggedIn,function (req, res) {
+app.get('/answer', /*isLoggedIn,*/function (req, res) {
     
     res.render('answer.ejs')
 });
@@ -49,13 +49,13 @@ app.get("/login", function (req, res) {
     });
 });
 
-app.get("/profile", isLoggedIn,function (req, res) {
+app.get("/profile", /*isLoggedIn,*/function (req, res) {
    
     res.render('profile.ejs');
 
 });
 
-app.get('/logout', isLoggedIn,function (req, res) {
+app.get('/logout', /*isLoggedIn,*/function (req, res) {
     
     req.logout();
     res.redirect('/');
@@ -80,19 +80,19 @@ app.post('/login', passport.authenticate('login', {
    })
 );
 
-function isLoggedIn(req, res, next) {
+// function /*isLoggedIn*/(req, res, next) {
  
-      if (req.isAuthenticated()){
+//     if (req.isAuthenticated()){
 
-      return next();
+//       return next();
       
-      }
+//     }
  
-      else{
+//     else{
 
-    res.redirect('/login');
+//       res.redirect('/login');
       
-      }
-}
+//     }
+// }
 
 module.exports = app;

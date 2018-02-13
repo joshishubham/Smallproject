@@ -51,12 +51,23 @@
 
 .btn{
 
-	margin-left: -10cm;
-	margin-top: 14cm;
+	margin-left: 16cm;
+	margin-top: .2cm;
 }
 
 .image{
 
     margin-left: 9cm;
-    margin-top: -2cm;
+    margin-top: .4cm;
 }
+
+#check{
+
+    margin-left: 10cm;
+}
+
+h3{
+
+    margin-left: 9.3cm;
+}
+

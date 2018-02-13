@@ -79,7 +79,7 @@ passport.use('login', new LocalStrategy ({
            if (!user.validPassword(Password)) {
 
                 //return done(null, false, console.log("Invalid Password"));
-                return done(null, false, req.flash("err", "Oops wrong password"))
+                return done(null, false, req.flash("err", "The password that you've entered is incorrect. "))
            }
 
              return done(null, user);
