@@ -6,9 +6,9 @@ var LocalStrategy = require('passport-local').Strategy;
 var crud = require('../Database/data.js');
 
 // //Signup authentication
-passport.use('signup', new LocalStrategy({
+passport.use('signup', new LocalStrategy ({
 
-       usernameField : "Email",
+       usernameField : "Username",
        passwordField : "Password",
        passReqToCallback: true
 }, 
@@ -52,6 +52,7 @@ passport.use('signup', new LocalStrategy({
      })
    )
 //));
+
 //Login authentication
 passport.use('login', new LocalStrategy ({
        
@@ -72,13 +73,13 @@ passport.use('login', new LocalStrategy ({
            if (!user) {
 
               //return done(null, false, console.log("Invalid Email"));
-              return done(null, false, req.flash("err", "Invalid Email"));
+              return done(null, false, req.flash("err", "No user found"));
            }
 
            if (!user.validPassword(Password)) {
 
                 //return done(null, false, console.log("Invalid Password"));
-                return done(null, false, req.flash("err", "Invalid Password"))
+                return done(null, false, req.flash("err", "Oops wrong password"))
            }
 
              return done(null, user);

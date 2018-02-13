@@ -5,7 +5,8 @@
     margin-top: 1cm;
     background-color: #cce6ff;
     font-size: 14px;
-    font-weight: arial;
+    font-weight: cursive;
+    position: inherit;
 }
 
 h6{
