@@ -8,7 +8,7 @@ var crud = require('../Database/data.js');
 // //Signup authentication
 passport.use('signup', new LocalStrategy ({
 
-       usernameField : "Username",
+       usernameField : "Email",
        passwordField : "Password",
        passReqToCallback: true
 }, 
@@ -57,7 +57,7 @@ passport.use('signup', new LocalStrategy ({
 passport.use('login', new LocalStrategy ({
        
        usernameField : "Email",
-       passwordField : "Password",
+       passwordField : "passwordd",
        passReqToCallback: true 
 },
    function(req, Email, Password,done){
