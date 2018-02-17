@@ -34,13 +34,41 @@
 
 .container{
 
-width: 13cm; 
-margin-top: 2cm;
-margin-left: 10cm;
+    width: 13cm; 
+    margin-top: 2cm;
+    margin-left: 10cm;
 }
 
 .btn{
 
-margin-left: 5cm;
+    margin-left: 5cm;
 
+}
+
+.btn-success{
+
+    margin-left: .2cm;
+}
+
+#for{
+ 
+    margin-left: 9.3cm;
+    line-height: 1cm;
+}
+
+a:hover{
+
+    text-decoration: none;
+    color: red;
+} 
+
+#wrong{
+
+    font-size: 15px;
+
+}
+
+#wrong:hover{
+
+     color: red
 }

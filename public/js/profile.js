@@ -83,4 +83,9 @@
 
            }
 
+           function mypass() {
+
+              document.getElementById('pass').type = this.checked ? 'text' : 'password'
+           }
+
 -->

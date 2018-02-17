@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   
@@ -6,6 +6,7 @@
 	
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -55,12 +56,14 @@
         <span class="glyphicon glyphicon-camera" id="image" onclick="image()"> Upload profile picture.</span></div>
      	<img src="./images/user.jpg" onmouseover ="onoverimage()" /></form>
 
-<!-- Form -->
 
+<!-- Form -->
 <form id = "validtation" autocomplete = "off">
 <div class="col-xs-4">
-
-<p>Name : Shubham joshi <span class="glyphicon glyphicon-edit"  onclick="name()" id="na"></span></p>
+    
+    <% if (user) { %>
+          
+<strong>Name: </strong><p><%= user.Name %></p><span class="glyphicon glyphicon-edit" onclick="name()" id="na"></span>
 
 <div class="form-group" id="name">
 
@@ -71,7 +74,7 @@
 
 </div><hr>
 
-<p>Username : shub@ <span class="glyphicon glyphicon-edit" onclick="user()" id="use"></span></p>
+<strong>Username : </strong><p><%= user.Username %></p><span class="glyphicon glyphicon-edit" onclick="user()" id="use"></span>
 
 <div class="form-group" id="username">
 
@@ -82,7 +85,7 @@
 
 </div><hr>
 
-<p>Email : shubhamjoshi844@gmail.com <span class="glyphicon glyphicon-edit" onclick="email()" id="em"></span></p>
+<strong>Email : </strong><p><%= user.Email %></p><span class="glyphicon glyphicon-edit" onclick="email()" id="em"></span>
 
 <div class="form-group" id="email">
 
@@ -93,7 +96,9 @@
 
 </div><hr>
 
-<p>Password <span class="glyphicon glyphicon-edit" onclick="pass()" id="pas"></span></p>
+<strong>Password : </strong><p id = "pass" onclick = "mypass()"><%= user.Confirm %></p><span class="glyphicon glyphicon-edit" onclick="pass()" id="pas"></span>
+
+<% } %>
 
 <div class="form-group" id="password">
 
@@ -106,9 +111,8 @@
 <span class="glyphicon glyphicon-remove-sign" onclick = "key()"></span>
 
 </div>
-
 </div>
 </form>
-</div> 
-</body><br><br>
+</div>
+</body>
 </html>

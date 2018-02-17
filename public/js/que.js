@@ -5,29 +5,36 @@
 
          	 alert(x+" "+y+" "+z)
 
-         } 
+           } 
           
-          var a = -1;
+          var a = 60; 
 
           function time() {
           	  
-            if (a < 59) {
+            if (a > 0) {
                 
-                a++
+                a--
 
                 setTimeout("time()", 1000);
 
                 document.getElementById('Time').innerHTML = "Time "+": "+ a;
             
             }
-            
-             else {
 
-                    alert("Your time is over ")
+            // else if (a == 0) {
 
-                   document.getElementById("form").reset();
-             
-             }          
-         } 
+            //      alert("Your time is over");
+                   
+            //      document.getElementById('form').disabled = true;
+
+            // }
+
+            else{
+
+                alert("Your time is over");
+                   
+                 document.getElementById('form').reset();
+            }    
+        }
 
 -->
