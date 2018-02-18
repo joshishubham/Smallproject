@@ -69,6 +69,8 @@
 
 <label>Name :</label><br>
 <input type="text" name="Name"  class="form-control" placeholder="Enter your name."><br>
+<label>Enter Password :</label><br>
+<input type="password" name="Password" class="form-control" placeholder="Enter your password." ><br>
 <button type = "submit" class="btn btn-primary">Save</button> 
 <span class="glyphicon glyphicon-remove-sign" onclick = "my()"></span>
 
@@ -80,6 +82,8 @@
 
 <label>Username : </label><br>
 <input type="text" name="Username" class="form-control" placeholder="Enter your username." /><br>
+<label>Enter Password :</label><br>
+<input type="password" name="Password" class="form-control" placeholder="Enter your password." ><br>
 <button type = "submit" class="btn btn-primary">Save</button> 
 <span class="glyphicon glyphicon-remove-sign" onclick = "wrong()"></span>
 
@@ -91,12 +95,14 @@
 
 <label>Email :</label><br>
 <input type="email" name="Email" class="form-control" placeholder="Enter your email." /><br>
+<label>Enter Password :</label><br>
+<input type="password" name="Password" class="form-control" placeholder="Enter your password." ><br>
 <button type = "submit" class="btn btn-primary">Save</button> 
 <span class="glyphicon glyphicon-remove-sign" onclick = "mywrong()"></span>
 
 </div><hr>
 
-<strong>Password : </strong><p id = "pass" onclick = "mypass()"><%= user.Confirm %></p><span class="glyphicon glyphicon-edit" onclick="pass()" id="pas"></span>
+<strong>Password : </strong></p><span class="glyphicon glyphicon-edit" onclick="pass()" id="pas"></span>
 
 <% } %>
 

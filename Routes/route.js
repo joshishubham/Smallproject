@@ -105,32 +105,24 @@ function isLoggedIn(req, res, next) {
 }
 
 //Edit Data in Database, editing in profile routes...
-// app.put('/edit/:id', function (req, res) {
+app.put('/edit/:id', function (req, res) {
+     
+      var Password = req.body.Password;
+      //var Name     = req.body.Name;
 
-//     var edit = 
+      req.body.Password = bcrypt.hashSync(Password, bcrypt.genSaltSync(8), null);
 
-//        Name = req.body.Name,
-//        Username = req.body.Username,
-//        Email = req.body.Email,
-//        Password = req.body.Password,
-//        Confirm = req.body.Confirm
+     crud.update({_id: req.params.id}, req.body, function (err, show) {
+             
+             if (err) {throw err;
 
-//     req.body.Password = bcrypt.hashSync(Password, bcrypt.genSaltSync(8), null)  
-      
-//    crud.findByIdAndUpdate({_id: req.params.id},edit, function (err, show) {
-            
-//             if (err) 
-            
-//                 throw err;
+              }
 
-//             else{
-            
-//                 res.json(show)
-            
-//             }
+             else{
 
-//             console.log(edit)
-//      });
-// });
+                  res.json(show)
+              }
+     });
+});
 
 module.exports = app;

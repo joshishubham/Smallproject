@@ -13,7 +13,7 @@
            	   document.getElementById('demo').style.display = "block";
            	   document.getElementById('none').style.display = "none";
            	   document.getElementById('err').style.display = "none"
-               document.getElementById('change').innerHTML = "forget Password";
+               document.getElementById('change').innerHTML = "forget password";
               
 
            }

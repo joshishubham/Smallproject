@@ -29,6 +29,7 @@
                        
               document.getElementById('email').style.display = "block";
               document.getElementById('em').style.color = "green";
+              
            }
             
             //Password
