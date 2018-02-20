@@ -48,12 +48,12 @@
 <h3>Notice -</h3>
 <div id = "checks">
 
-	1 - You have only one minutes.<br>
-	2 - If your time has expired, your form will be automatically reset.<br><br>	 
+	<strong>1 - You have only one minutes.</strong><br>
+	<!-- <strong>2 - If your time has expired, your form will be automatically reset. </strong><br> --><br>	 
 
-<p><input type="checkbox" id="check" onchange = "checkbox()"> Hope, you have carefully read this notice. </p>
+<strong><input type="checkbox" id="check" onclick = "checkbox()"> Hope, you have carefully read this notice. </strong>
 
-</div>
+</div><br>
 
 <div>
 <button class="btn btn-success" id = "btn" onclick= "window.location.href = './question'" disabled = 'true'> Let's Start</button>
@@ -63,18 +63,18 @@
 <script> 
 
 	  function checkbox() {
-	  	     
-	  	   //var a = document.getElementById('btn').disabled = false;
-              
-              if (document.getElementById('check').checked) {
+	  	                  
+        if (document.getElementById('check').checked) {
 
-              	  document.getElementById('btn').disabled = false;
+        	  document.getElementById('btn').disabled = false;
 
-              } else {
+        }
 
-              	  document.getElementById('btn').disabled = true;
-              }
-	  }
+        else {
+
+        	  document.getElementById('btn').disabled = true;
+        }
+	    }
 	
 </script>
 </body>

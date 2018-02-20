@@ -7,13 +7,13 @@
 
            } 
           
-          var a = 60; 
+          var a = -1; 
 
           function time() {
           	  
-            if (a > 0) {
+            if (a < 59) {
                 
-                a--
+                a++
 
                 setTimeout("time()", 1000);
 
@@ -21,20 +21,19 @@
             
             }
 
-            // else if (a == 0) {
+            else if (a == 59) {
 
-            //      alert("Your time is over");
-                   
-            //      document.getElementById('form').disabled = true;
+                 var form = document.getElementById('form');
+                 var elements = form.elements;
 
-            // }
+                   for (var i = 0; i < form.length; i++) {
+                                 
+                                 form[i].disabled = true;
+                   }
 
-            else{
 
-                alert("Your time is over");
-                   
-                 document.getElementById('form').reset();
-            }    
-        }
+                 alert("Your time is over");    
+            }
+          }
 
 -->
