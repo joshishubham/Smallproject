@@ -39,7 +39,7 @@ button{
 
 #btn{
      
-    margin-left : 4cm;
+    margin-left : 5.5cm;
 }
 
 .simple-drop{
@@ -75,23 +75,6 @@ button{
     background-color: blue;
 
 }
-
-.dropdown-menu a{
-
-    color: black;
-    font-size: 16px;
-    padding: 4px 1px;
-    text-align: center;
-
-}
-
-.dropdown-menu a:hover{
-
-    color: black;
-    text-decoration: none;
-    background-color: #cccccc;
-    
-}   
 
 #li{
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app = "myapp" >
 <head>
   
 	<title>Profile</title>
@@ -12,10 +12,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/js/formValidation.min.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/js/framework/bootstrap.min.js"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="./css/profile.css">
   <script type="text/javascript" src = "./js/sign.js"></script>
   <script type="text/javascript" src = "./js/profile.js"></script>
+  <script type="text/javascript" src = "./app/app.js"></script>
   <script src="/reload/reload.js"></script>
 
 </head>
@@ -49,26 +52,27 @@
 
 <!-- Images  -->
 
- <div class="container">
+ <div class="container" >
    <form method = "post" action="/images" id="a" >
     <div class="well" onmouseout="onmoutimage()">
       <input type="file" id = "file">
         <span class="glyphicon glyphicon-camera" id="image" onclick="image()"> Upload profile picture.</span></div>
-     	<img src="./images/user.jpg" onmouseover ="onoverimage()" /></form>
+        	<img src="./images/user.jpg" onmouseover ="onoverimage()" /></form>
+            <a class="delete btn btn-default" id = "show" onclick = "show()">Delete acoount</a>
 
+<!-- Edit Form -->
+<form id = "validtation" autocomplete = "off" method="post" action="/profile">
 
-<!-- Form -->
-<form id = "validtation" autocomplete = "off">
-<div class="col-xs-4">
-    
-    <% if (user) { %>
-          
-<strong>Name: </strong><p><%= user.Name %></p><span class="glyphicon glyphicon-edit" onclick="name()" id="na"></span>
+<div class="col-xs-4" ng-controller = "myctrl">
+
+<div ng-repeat = "data in databased">
+
+<strong>Name: </strong><p>{{data.Name}}</p><span class="glyphicon glyphicon-edit" onclick="name()" id="na"></span>
 
 <div class="form-group" id="name">
 
 <label>Name :</label><br>
-<input type="text" name="Name"  class="form-control" placeholder="Enter your name."><br>
+<input type="text" name="Name"  class="form-control" placeholder="Enter your new name."><br>
 <label>Enter Password :</label><br>
 <input type="password" name="Password" class="form-control" placeholder="Enter your password." ><br>
 <button type = "submit" class="btn btn-primary">Save</button> 
@@ -76,12 +80,12 @@
 
 </div><hr>
 
-<strong>Username : </strong><p><%= user.Username %></p><span class="glyphicon glyphicon-edit" onclick="user()" id="use"></span>
+<strong>Username : </strong><p>{{data.Username}}</p><span class="glyphicon glyphicon-edit" onclick="user()" id="use"></span>
 
 <div class="form-group" id="username">
 
 <label>Username : </label><br>
-<input type="text" name="Username" class="form-control" placeholder="Enter your username." /><br>
+<input type="text" name="Username" class="form-control" placeholder="Enter your new username." /><br>
 <label>Enter Password :</label><br>
 <input type="password" name="Password" class="form-control" placeholder="Enter your password." ><br>
 <button type = "submit" class="btn btn-primary">Save</button> 
@@ -89,12 +93,12 @@
 
 </div><hr>
 
-<strong>Email : </strong><p><%= user.Email %></p><span class="glyphicon glyphicon-edit" onclick="email()" id="em"></span>
+<strong>Email : </strong><p>{{data.Email}}</p><span class="glyphicon glyphicon-edit" onclick="email()" id="em"></span>
 
 <div class="form-group" id="email">
 
 <label>Email :</label><br>
-<input type="email" name="Email" class="form-control" placeholder="Enter your email." /><br>
+<input type="email" name="Email" class="form-control" placeholder="Enter your new email." /><br>
 <label>Enter Password :</label><br>
 <input type="password" name="Password" class="form-control" placeholder="Enter your password." ><br>
 <button type = "submit" class="btn btn-primary">Save</button> 
@@ -102,14 +106,12 @@
 
 </div><hr>
 
-<strong>Password : </strong></p><span class="glyphicon glyphicon-edit" onclick="pass()" id="pas"></span>
-
-<% } %>
+<strong>Password : </strong><p></p><span class="glyphicon glyphicon-edit" onclick="pass()" id="pas"></span>
 
 <div class="form-group" id="password">
 
 <label>Enter Password :</label><br>
-<input type="password" name="Password" class="form-control" placeholder="Enter your password." ><br>
+<input type="password" name="Password" class="form-control" placeholder="Enter your new password." ><br>
 
 <label>Re-Enter-Password :</label><br>
 <input type="password" name="Confirm" class="form-control"  placeholder="Re-Enter-Password" ><br>
@@ -117,6 +119,22 @@
 <span class="glyphicon glyphicon-remove-sign" onclick = "key()"></span>
 
 </div>
+</div><br><br>
+
+<div style="display: none;" id="delete">
+  <h4>Warning: </h4><br>
+<strong>
+   
+<li class = "square">When you delete your account you will lose all data to the account, there will no way your account recovered. </li>
+   <br><br>
+   <input type="checkbox" onclick = "checks()" id="checked"> Hope, you have carefully read this notice.<br><br>
+
+<button id = "check" class="btn btn-danger" disabled>Delete your account...</button>
+<span class="glyphicon glyphicon-remove-sign" onclick="del()"></span>
+
+
+</strong> 
+</div><br><br><br>
 </div>
 </form>
 </div>

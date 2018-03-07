@@ -1,0 +1,12 @@
+{
+	"datas" : [
+  
+	  {
+		"Name" : "Shubham",
+		"Username": "a@g.com",
+		"Email" : "shubhamjoshi844@gmail.com",
+		"Password"  : 12345678,
+		"Confirm" : 12345678
+	  }
+   ]
+}

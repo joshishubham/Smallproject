@@ -32,23 +32,6 @@
 
 }
 
-.dropdown-menu a{
-
-    color: black;
-    font-size: 16px;
-    padding: 4px 1px;
-    text-align: center;
-
-}
-
-.dropdown-menu a:hover{
-
-    color: black;
-    text-decoration: none;
-    background-color: #cccccc;
-    
-}  
-
 h4{
 
     margin-left: 14cm;

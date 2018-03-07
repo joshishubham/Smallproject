@@ -64,6 +64,12 @@ app.get('/forget', function (req, res) {
 
 });
 
+app.get('/try', function (req, res) {
+      
+    res.sendFile(__dirname + "/try.json");
+
+});
+
 app.get('/logout', isLoggedIn,function (req, res) {
     
     req.logout();
@@ -72,7 +78,7 @@ app.get('/logout', isLoggedIn,function (req, res) {
 });
 
 //Sign-up Post routes.
-app.post('/sign', passport.authenticate('signup', {
+app.post('/sign', passport.authenticate('/sign', {
 
     successRedirect: 'login',
     failureRedirect: '/',
@@ -83,7 +89,7 @@ app.post('/sign', passport.authenticate('signup', {
 //Log in post routes.
 app.post('/login', passport.authenticate('login', {
          
-    successRedirect: '/home',
+    successRedirect: '/profile',
     failureRedirect: '/login',
     failureFlash   : true 
    })
@@ -104,16 +110,17 @@ function isLoggedIn(req, res, next) {
 }
 
 //Edit Data in Database, editing in profile routes...
-app.put('/edit/:id', function (req, res) {
+app.put('/sign/:id', function (req, res) {
      
       var Password = req.body.Password;
-      //var Name     = req.body.Name;
 
       req.body.Password = bcrypt.hashSync(Password, bcrypt.genSaltSync(8), null);
 
      crud.update({_id: req.params.id}, req.body, function (err, show) {
              
-             if (err) {throw err;
+             if (err) {
+
+                 throw err;
 
               }
 
@@ -124,4 +131,20 @@ app.put('/edit/:id', function (req, res) {
      });
 });
 
+app.delete('/sign/:id', function (req, res) {
+     
+     crud.remove({_id: req.params.id}, function (err, show) {
+            
+             if (err) {
+
+                 throw err;
+
+              }
+
+             else{
+
+                  res.json(show)
+              }
+     })
+})
 module.exports = app;

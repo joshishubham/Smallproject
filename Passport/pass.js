@@ -6,7 +6,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var crud = require('../Database/data.js');
 
 // //Signup authentication
-passport.use('signup', new LocalStrategy ({
+passport.use('/sign', new LocalStrategy ({
 
        usernameField : "Email",
        passwordField : "Password",
@@ -24,7 +24,8 @@ passport.use('signup', new LocalStrategy ({
 
          if (user) {
 
-            return done(null, false, req.flash("err", "Email is already used"));
+            return done(null, false, req.flash("err", "Email is already used !"));
+            //return done(null, false, console.log( "Email is already used !"));
          }
 
          else{
@@ -45,7 +46,8 @@ passport.use('signup', new LocalStrategy ({
                            
                    console.log(data);
 
-                    return done(null, data, req.flash("suc", "You have successfully sign up and can you now login"));
+                    return done(null, data, req.flash("suc", "You have successfully sign up and can you now login !"));
+                    //return done(null, data, console.log("You have successfully sign up and can you now login !"));
                })
             } 
         });
@@ -72,13 +74,14 @@ passport.use('login', new LocalStrategy ({
 
            if (!user) {
 
-              return done(null, false, req.flash("err", "No user found"));
-              return done(null, false, console.log("No user found"))
+              return done(null, false, req.flash("err", "No user found !"));
+              //return done(null, false, console.log("No user found !"))
            }
 
            if (!user.validPassword(Password)) {
 
-                return done(null, false, req.flash("err", "The password that you've entered is incorrect. "))
+                return done(null, false, req.flash("err", "The password that you've entered is incorrect !"));
+                //return done(null, false, console.log("The password that you've entered is incorrect. !"))
            }
 
              return done(null, user);

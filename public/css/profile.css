@@ -31,23 +31,6 @@
     text-decoration: none;
     background-color: blue;
 
-}
-
-.dropdown-menu a{
-
-    color: black;
-    font-size: 16px;
-    padding: 4px 1px;
-    text-align: center;
-
-}
-
-.dropdown-menu a:hover{
-
-    color: black;
-    text-decoration: none;
-    background-color: #cccccc;
-    
 }  
 
 .well{
@@ -115,6 +98,7 @@ form{
     font-size: 18px;
     margin-left: .4cm;
     margin-top: -2cm;
+    cursor: pointer;
 }
 
 .glyphicon-remove-sign:hover{
@@ -136,4 +120,22 @@ input[type = 'file'] {
 p{
     margin-top: -0.54cm;
     margin-left: 3cm;
+}
+
+.square{
+
+    list-style-type: square;
+}
+
+.delete{
+
+    margin-left: 25cm;
+    margin-top: -1cm;
+}
+
+.delete:hover{
+   
+    text-decoration: none;
+    color: red;
+
 }

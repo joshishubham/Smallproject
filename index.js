@@ -55,6 +55,7 @@ app.set('view engine', './views');
 
 //Static file
 app.use(express.static('public'));
+app.use(express.static('Client'));
 
 // Reload code here 
 reload(app);

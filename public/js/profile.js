@@ -84,9 +84,27 @@
 
            }
 
-           function mypass() {
+           function show() {
+                
+                document.getElementById('delete').style.display = "block";
+           }
 
-              document.getElementById('pass').type = this.checked ? 'text' : 'password'
+           function del() {
+                
+                document.getElementById('delete').style.display = "none";
+           }
+
+           function checks() {
+             
+             if (document.getElementById("checked").checked) {
+
+                 document.getElementById('check').disabled = false;
+             }
+
+             else{
+
+                 document.getElementById("check").disabled = true;
+             }
            }
 
 -->
