@@ -106,5 +106,4 @@
                  document.getElementById("check").disabled = true;
              }
            }
-
 -->

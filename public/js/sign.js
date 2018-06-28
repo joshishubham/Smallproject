@@ -5,7 +5,15 @@
          	   
          	   alert(x+" "+y+" "+z)
    }
-      
+
+//Javascript for animation css
+
+    function shake() {
+         
+        document.getElementById('validtation').className += ' animated shake';
+    }
+
+//Form-validation 
     $(document).ready(function(){
     	$('#validtation').formValidation({
     		framework: 'bootstrap',

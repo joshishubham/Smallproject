@@ -1,29 +1,31 @@
 //Node-modules
-var express       = require('express');
-var mongoose      = require('mongoose');
-var reload        = require('reload');
-var passport      = require('passport');
-var flash         = require('connect-flash');
-var cookieParser  = require('cookie-parser');
-var session       = require('express-session');
-var morgan        = require('morgan');
-var bp            = require('body-parser');
-var app           = express();
+var express = require('express');
+var mongoose= require('mongoose');
+var reload = require('reload');
+var passport = require('passport');
+var flash = require('connect-flash');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var morgan = require('morgan');
+var bp = require('body-parser');
+var expressValidator = require('express-validator');
+var app = express();
 
 //Database, Routes &  Passport Files
-var crud          = require("./Database/data.js");
+var datas         = require("./Database/data.js");
 var routes        = require('./Routes/route.js');
 var multer        = require('./Multer/multer.js')
 
 //mongoose connections
 mongoose.Promise = global.Promise;
 
-mongoose.connect("mongodb://localhost:27017/Data", {
+mongoose.connect("mongodb://localhost:27017/datas", {
 	   useMongoClient: true
 });
 
 //middleware 
 //app.use(morgan('dev'));
+app.use(expressValidator());
 app.use(flash());
 app.use(bp.json());
 app.use(bp.urlencoded({extended : true}));
@@ -35,6 +37,7 @@ app.use(session({
 	    saveUninitialized: true,
 }));
 
+//Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -45,7 +48,7 @@ passport.serializeUser(function(user, done){
 
 passport.deserializeUser(function(id, done){
    
-   crud.findById(id, function(err, user){
+   datas.findById(id, function(err, user){
        done(err, user);
    });
 });

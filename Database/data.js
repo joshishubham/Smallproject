@@ -5,11 +5,11 @@ var bcrypt = require('bcryptjs');
 //Mongoose schema
 var Data = mongoose.Schema({
 
-	   Name     : {type : String}, 
-	   Username : {type : String, index: {unique: true}},  
-	   Email    : {type : String, required: true, index: {unique: true}}, 
-	   Password : {type : String},
-       Confirm  : {type : String}
+	   Name: {type : String, required: true}, 
+	   Email: {type : String, required: true, index: {unique: true}}, 
+	   Password: {type : String, required: true},
+       Confirm: {type : String, required: true},
+       Gender: {type : String, required: true}
 
 });
 
@@ -24,4 +24,4 @@ Data.methods.validPassword = function(Password){
      return bcrypt.compareSync(Password, this.Password);
 }
 
-var crud = module.exports = mongoose.model("crud", Data);
+var datas = module.exports = mongoose.model("datas", Data);

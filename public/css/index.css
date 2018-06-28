@@ -18,9 +18,14 @@
     text-decoration: none;
 }
 
+//#validtation{
+
+    -webkit-animation-duration: .2s
+}
+
 #a{
 
-     margin-left: -22cm;
+    margin-left: -22cm;
 }
 
 #a a:hover{
@@ -81,4 +86,8 @@
 #wrong:hover{
 
      color: red
+}
+
+h4{
+    word-spacing: 2.36cm;
 }

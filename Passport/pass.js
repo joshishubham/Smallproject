@@ -3,7 +3,7 @@ var passport 	    = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 //Database File
-var crud = require('../Database/data.js');
+var datas = require('../Database/data.js');
 
 // //Signup authentication
 passport.use('/sign', new LocalStrategy ({
@@ -15,7 +15,7 @@ passport.use('/sign', new LocalStrategy ({
 }, 
    function (req, Email, Password, done) {
       
-      crud.findOne({Email:Email},function (err, user) {
+      datas.findOne({Email:Email},function (err, user) {
         
          if (err) {
 
@@ -30,13 +30,13 @@ passport.use('/sign', new LocalStrategy ({
 
          else{
 
-           var data = new crud();
-             
+           var data = new datas();
+
+             data.Gender = req.body.Gender;
+             data.Confirm  = req.body.Confirm;
              data.Password = data.generateHash(Password);
              data.Email    = Email;
-             data.Username = req.body.Username;
              data.Name     = req.body.Name;
-             data.Confirm  = req.body.Confirm;
 
                data.save(function (err) {
                   
@@ -44,10 +44,7 @@ passport.use('/sign', new LocalStrategy ({
 
                   throw err;
                            
-                   console.log(data);
-
-                    return done(null, data, req.flash("suc", "You have successfully sign up and can you now login !"));
-                    //return done(null, data, console.log("You have successfully sign up and can you now login !"));
+                    return done(null, data)
                })
             } 
         });
@@ -64,7 +61,7 @@ passport.use('login', new LocalStrategy ({
 },
    function(req, Email, Password,done){
 
-      crud.findOne({Email:Email}, function (err, user) {
+      datas.findOne({Email:Email}, function (err, user) {
 
            if (err) {
 
