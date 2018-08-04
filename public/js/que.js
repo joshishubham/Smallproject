@@ -1,39 +1,28 @@
-<!--
-      onerror = showError
+  var a = -1; 
 
-         function showError(x, y, z) {
+function time() {
+    
+  if (a < 59) {
+      
+      a++
 
-         	 alert(x+" "+y+" "+z)
+      setTimeout("time()", 1000);
 
-           } 
-          
-          var a = -1; 
+      document.getElementById('Time').innerHTML = "Time "+": "+ a;
+  
+  }
 
-          function time() {
-          	  
-            if (a < 59) {
-                
-                a++
+  else if (a == 59) {
 
-                setTimeout("time()", 1000);
+        var form = document.getElementById('form');
+        var elements = form.elements;
 
-                document.getElementById('Time').innerHTML = "Time "+": "+ a;
-            
-            }
-
-            else if (a == 59) {
-
-                 var form = document.getElementById('form');
-                 var elements = form.elements;
-
-                   for (var i = 0; i < form.length; i++) {
-                                 
-                                 form[i].disabled = true;
-                   }
-
-
-                 alert("Your time is over");    
-            }
+          for (var i = 0; i < form.length; i++) {
+                        
+                        form[i].disabled = true;
           }
 
--->
+
+        alert("Your time is over");    
+  }
+}

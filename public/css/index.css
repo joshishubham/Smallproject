@@ -9,7 +9,6 @@
 }
 
 .navbar a {
-
     float: left;
     font-size: 16px;
     color: white;
@@ -18,76 +17,57 @@
     text-decoration: none;
 }
 
-//#validtation{
-
-    -webkit-animation-duration: .2s
-}
-
 #a{
-
     margin-left: -22cm;
 }
 
 #a a:hover{
-
-    color: white;
+    color: red;
     text-decoration: none;
-    background-color: red;
+    background-color: #333;
 }
 
 #b{
-
      margin-left: -16cm;
 }
 
 #b a:hover{
-
-    color: white;
+    color: red;
     text-decoration: none;
-    background-color: red;
+    background-color: #333;
 }
 
-.container{
-
-    width: 13cm; 
+.col-sm-4{
     margin-top: 2cm;
-    margin-left: 10cm;
+    margin-left: 11cm;
 }
 
 .btn{
-
     margin-left: 5cm;
-
 }
 
 .btn-success{
-
     margin-left: .2cm;
 }
 
 #for{
- 
-    margin-left: 9.3cm;
+    margin-left: 7cm;
     line-height: 1cm;
 }
 
-//a:hover{
-
-    text-decoration: none;
-    color: red;
-} 
-
 #wrong{
-
     font-size: 15px;
 
 }
 
 #wrong:hover{
-
      color: red
 }
 
 h4{
-    word-spacing: 2.36cm;
+    word-spacing: 1.5cm;
 }
+
+/* #validtation{
+    -webkit-animation-duration: .2s
+} */

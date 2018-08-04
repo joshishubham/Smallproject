@@ -1,5 +1,4 @@
 .simple-drop{
-
     background-color: #333;
     font-family: Arial;
     width: 101%;
@@ -11,60 +10,48 @@
 }
 
 .dropdown{
-
     margin-left: 32cm;  
     margin-top: -1.31cm;
 }
 
 .simple-drop a{
-
     color: white;
     padding: 16px 16px;
     font-size: 16px;
     text-align: center;
 }
 
-.simple-drop a:hover{
-    
+.simple-drop a:hover{   
     color: white;
     text-decoration: none;
     background-color: blue;
-
 }
 
 #b {
-
     border: 1px solid white;
-    //margin-top: 11cm;
     margin-left: 13cm;
     font-size: 15px;
     width: 6% auto;
     height: 7cm auto;
     background-color: white;
     line-height: 50px;
-
 }
 
 #li{
-
     margin-left: 24.7cm;
 }
 
 #a{
-
     margin-left: 13cm;
     margin-top: 12.9cm;
-
 }
-img{
 
+img{
     width: 1cm;
     height: 1cm;
     margin-right: .4cm;
-    
 }
 
-img:hover{
-    
+img:hover{    
     opacity: .7;
 }

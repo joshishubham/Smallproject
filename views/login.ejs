@@ -9,25 +9,15 @@
     <script src="/reload/reload.js"></script>
 </head>
 <body>
-
-<div class="navbar">
-
-<ul class="nav navbar-nav navbar-right">
-
-      <li id = "a"><a href="./"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li id = "b"><a href="./login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      
-</ul>
-</div>
-
-<div class="container">
+     <% include navbar%>
+<div class="col-sm-4">
 
 <h1 id="change">Log in</h1>
 <hr>
 
 <br>
 
-<div id="err">
+<div id= "err">
 
         <% if (error.length > 0) { %>
             <div class="alert alert-danger"><%= error %></div>

@@ -1,5 +1,4 @@
 .simple-drop{
-
     background-color: #333;
     font-family: Arial;
     width: 101%;
@@ -11,29 +10,24 @@
 }
 
 .dropdown{
-
     margin-left: 32cm;  
     margin-top: -1.31cm;
 }
 
 .simple-drop a{
-
     color: white;
     padding: 16px 16px;
     font-size: 16px;
     text-align: center;
 }
 
-.simple-drop a:hover{
-    
+.simple-drop a:hover{ 
     color: white;
     text-decoration: none;
     background-color: blue;
-
 }
 
 h4{
-
     margin-left: 14cm;
     margin-top: 3cm 
 }

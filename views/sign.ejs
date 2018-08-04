@@ -16,18 +16,8 @@
 </head>
 
 <body>
-
-<div class="navbar">
- 
-<ul class="nav navbar-nav navbar-right">
-
-      <li id = "a"><a href="./"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li id = "b"><a href="./login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      
-</ul>
-</div>
-
-<div class="container">
+    <% include navbar%>
+<div class="col-sm-4">
 <h1>Sign up</h1>
 <br><hr>
 
@@ -43,7 +33,7 @@
 
 </div>
 
-<form autocomplete="off" action="/sign" method="post" id ="validtation" >
+<form autocomplete="on" action="/sign" method="post" id ="validtation" >
 
 <div class="form-group">
 <label>Name :</label><br>
@@ -55,12 +45,10 @@
 <input type="email" name="Email" class="form-control" placeholder="Enter your email." />
 </div>
 
-
 <div class="form-group">
 <label>Enter Password :</label><br>
 <input type="password" name="Password" class="form-control" placeholder="Enter your password." >
 </div>
-
 
 <div class="form-group">
 <label>Re-Enter-Password :</label><br>
@@ -74,9 +62,10 @@
 <input type="radio" name= "Gender" value= "Other" />Other</h4>
 </div>
 
-
 <div class="form-group">
-<button type="submit" onclick= "shake()" class="btn btn-success">Sign up</button><br><br>
+<button type="submit" class="btn btn-success">Sign up</button><br><br>
+<!-- <button type="submit" onclick= "shake()" class="btn btn-success">Sign up</button><br><br> -->
+
 </div>
 
 </form>

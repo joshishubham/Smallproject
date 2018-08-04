@@ -1,11 +1,3 @@
-<!--
-      onerror = Showerror
-
-         function Showerror(x, y, z) {
-         	   
-         	   alert(x+" "+y+" "+z)
-   }
-
 //Javascript for animation css
 
     function shake() {
@@ -74,5 +66,4 @@
             }
         }
     });
-});     
--->
+});

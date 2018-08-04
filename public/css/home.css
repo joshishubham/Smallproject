@@ -1,5 +1,4 @@
- .container{
-    
+ .container{  
     width: 55%;
     border: 1px solid #cce6ff;
     margin-top: 1cm;
@@ -10,40 +9,33 @@
 }
 
 h6{
-
     margin-left: 2.5cm;
     font-size: 16px; 
 }
 
 label{
-
     margin-left: 2.5cm
 }
 
 h4{
-
     margin-left: 14.2cm;
     font-size: 16px; 
     margin-top: -0.8cm;
 }
 
 h3{
-
     font-size: 16px ;
 }
 
 button{
-
     margin-left : 4cm;
 }
 
-#btn{
-     
+#btn{ 
     margin-left : 5.5cm;
 }
 
 .simple-drop{
-
     background-color: #333;
     font-family: Arial;
     width: 101%;
@@ -55,13 +47,11 @@ button{
 }
 
 .dropdown{
-
     margin-left: 32cm;  
     margin-top: -1.31cm;
 }
 
 .simple-drop a{
-
     color: white;
     padding: 16px 16px;
     font-size: 16px;
@@ -69,7 +59,6 @@ button{
 }
 
 .simple-drop a:hover{
-    
     color: white;
     text-decoration: none;
     background-color: blue;
@@ -77,6 +66,5 @@ button{
 }
 
 #li{
-
     margin-left: 24.7cm;
 }

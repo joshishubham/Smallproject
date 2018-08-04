@@ -24,17 +24,16 @@ mongoose.connect("mongodb://localhost:27017/datas", {
 });
 
 //middleware 
-//app.use(morgan('dev'));
 app.use(expressValidator());
+// app.use(morgan('dev'));
 app.use(flash());
 app.use(bp.json());
 app.use(bp.urlencoded({extended : true}));
 app.use(cookieParser());
 app.use(session({
-	
-	    secret: "secure",
-	    resave: true,
-	    saveUninitialized: true,
+    secret: "secure",
+    resave: true,
+    saveUninitialized: true,
 }));
 
 //Passport middleware
@@ -42,12 +41,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.serializeUser(function(user, done){
-   
    done(null, user.id); 
 });
 
 passport.deserializeUser(function(id, done){
-   
    datas.findById(id, function(err, user){
        done(err, user);
    });

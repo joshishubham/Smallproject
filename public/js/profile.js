@@ -1,109 +1,76 @@
-<!--
-         onerror = showError
+//Name
+function name() {           
+    document.getElementById('name').style.display = "block";
+    document.getElementById('na').style.color = "green";
+    
+}   
+//Username
+function user() {                      
+    document.getElementById('username').style.display = "block";
+    document.getElementById('use').style.color = "green";
+}
 
-          function showError(x, y, z) {
-          	
-          	   alert(x+" "+y+" "+z)
-          
-        }
-            
-            //Name
+//Email
+function email() {
+    document.getElementById('email').style.display = "block";
+    document.getElementById('em').style.color = "green";
+    
+}
 
-           function name() {
-                       
-                       
-              document.getElementById('name').style.display = "block";
-              document.getElementById('na').style.color = "green";
-              
-            }
-             
-             //Username
-            function user() {           
-                       
-              document.getElementById('username').style.display = "block";
-              document.getElementById('use').style.color = "green";
-           }
-            
-            //Email
-           function email() {           
-                       
-              document.getElementById('email').style.display = "block";
-              document.getElementById('em').style.color = "green";
-              
-           }
-            
-            //Password
-           function pass() {           
-                       
-              document.getElementById('password').style.display = "block";
-              document.getElementById('pas').style.color = "green";
-           }
+//Password
+function pass() {
+    document.getElementById('password').style.display = "block";
+    document.getElementById('pas').style.color = "green";
+}
 
-           //Wrong
-           function my() {
-             
-              document.getElementById('name').style.display = "none";
-              document.getElementById('na').style.color = "black";
-           
-           }
+//Wrong
+function my() {    
+    document.getElementById('name').style.display = "none";
+    document.getElementById('na').style.color = "black";
+}
 
-           function wrong() {
+function wrong() {
+    document.getElementById('username').style.display = "none";
+    document.getElementById('use').style.color = "black";
+}
 
-              document.getElementById('username').style.display = "none";
-              document.getElementById('use').style.color = "black";
-           }
+function mywrong() {
+    document.getElementById('email').style.display = "none";
+    document.getElementById('em').style.color = "black";
+}
 
-           function mywrong() {
+function key() {
+    document.getElementById('password').style.display = "none";
+    document.getElementById('pas').style.color = "black";
+}
 
-              document.getElementById('email').style.display = "none";
-              document.getElementById('em').style.color = "black";
-           }
+//Images
+function onoverimage() {
+    document.getElementById('image').style.display = "block";        
+}
 
-           function key() {
+function onmoutimage() {
+    document.getElementById('image').style.display = "none"
+}
 
-              document.getElementById('password').style.display = "none";
-              document.getElementById('pas').style.color = "black";
-           }
+function image() {
+    document.getElementById('file').click();
+}
 
-            //Images
-           function onoverimage() {
-              
-                document.getElementById('image').style.display = "block";
-                    
-           }
+function show() {
+    document.getElementById('delete').style.display = "block";
+}
 
-            function onmoutimage() {
-              
-                document.getElementById('image').style.display = "none"
-           
-           }
+function del() {
+    document.getElementById('delete').style.display = "none";
+}
 
-           function image() {
-             
-                document.getElementById('file').click();
+function checks() {
+    if (document.getElementById("checked").checked) {
+        document.getElementById('check').disabled = false;
+    }
 
-           }
-
-           function show() {
-                
-                document.getElementById('delete').style.display = "block";
-           }
-
-           function del() {
-                
-                document.getElementById('delete').style.display = "none";
-           }
-
-           function checks() {
-             
-             if (document.getElementById("checked").checked) {
-
-                 document.getElementById('check').disabled = false;
-             }
-
-             else{
-
-                 document.getElementById("check").disabled = true;
-             }
-           }
--->
+    else{
+        document.getElementById("check").disabled = true;
+    }
+}
