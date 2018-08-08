@@ -4,6 +4,7 @@
 	<title>Question & Answer</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="stylesheet" type="text/css" href="./css/index.css">
     <script type="text/javascript" src="./js/log.js"></script>
     <script src="/reload/reload.js"></script>
@@ -19,9 +20,14 @@
 
 <div id= "err">
 
-        <% if (error.length > 0) { %>
-            <div class="alert alert-danger"><%= error %></div>
-        <% } %>
+    <% if (error.length > 0) { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% }  
+
+     else if (success.length > 0) { %>
+        <div class="alert alert-success"><%= success %></div>
+    <% }  %>
+
 
 </div>
 
@@ -43,7 +49,8 @@
 </div><br>
 </form>
 
-<div id="demo" style="display: none">
+<form action= "/forget" method= "POST">
+<div id="demo" style="display: none" class= "animated slideInDown">
 
 <label>Enter Email :</label><br>
 <input type="text" name="forget" class="form-control" placeholder="Enter your email." /><br>
@@ -53,6 +60,7 @@
 
 </div>
 </div>
+</form>
 </div><br>
 
 </body>

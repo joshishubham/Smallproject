@@ -36,7 +36,8 @@ app.get("/", function (req, res) {
 
 app.get("/login", function (req, res) {   
     res.render('login.ejs', {
-        error : req.flash('err') 
+        error : req.flash('err'),
+        success : req.flash('suc')
     });
 });
 
@@ -69,6 +70,13 @@ app.post('/login', passport.authenticate('login', {
     failureFlash   : true 
    })
 );
+
+//Forget route
+app.post('/forget', function (req, res) {
+    console.log(req.body);
+     req.flash('suc', "Password successfully changed !")
+    res.redirect('/login')
+})
 
 //Logged
 function isLoggedIn(req, res, next) {

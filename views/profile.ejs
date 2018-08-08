@@ -50,9 +50,9 @@
 <!-- Images  -->
 
  <div class="container" >
-   <form method = "post" action="/images" class = "form" id="a" >
+   <form method = "post" action="/image" enctype= "multipart/form-data" class= "form" id= "a" >
     <div class="well" onmouseout="onmoutimage()">
-      <input type="file" id = "file">
+      <input type="file" id = "file" name= "Image">
         <span class="glyphicon glyphicon-camera" id="image" onclick="image()"> Edit profile picture.</span></div>
         	<img src="./images/user.jpg" onmouseover ="onoverimage()" /></form>
             <a class="delete btn btn-default" id = "show" onclick = "show()">Delete acoount</a>

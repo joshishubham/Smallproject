@@ -2,7 +2,32 @@ var express = require('express');
 var multer  = require('multer');
 var app     = express();
 
-var upload = multer({dest: './public/uploads'});
+var fileSize = Infinity;
 
-app.post('/images', upload.single('avator'), function (req, res, next) {
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'uploads/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + file.originalname)
+    console.log("heelllo")
+}
+  });
+
+var upload = multer({
+    storage: storage,
+    limits: {fileSize}
+}).single('Image');
+
+app.post('/image',function (req, res) {
+    upload(req, res, function (err) {
+        if (err) {
+            throw err;
+        } else {
+            console.log(req.file);
+            res.redirect('/profile');
+        }
+    })
 });
+
+module.exports = app;
