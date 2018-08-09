@@ -9,13 +9,15 @@ var session= require('express-session');
 var multer= require('multer');
 var morgan= require('morgan');
 var bp= require('body-parser');
+var nodemailer= require('nodemailer');
 var expressValidator= require('express-validator');
 var app= express();
 
 //Database, Routes &  Passport Files
 var datas= require("./Database/data.js");
 var routes= require('./Routes/route.js');
-var multer= require('./Multer/multer.js')
+var multer= require('./Multer/multer.js');
+var nodemailer= require('./Nodemailer/nodemailer.js');
 
 //mongoose connections
 mongoose.Promise = global.Promise;
@@ -25,7 +27,7 @@ mongoose.connect("mongodb://localhost:27017/datas", {
 
 //middleware 
 app.use(expressValidator());
-// app.use(morgan('dev'));
+app.use(morgan('dev'));
 app.use(flash());
 app.use(bp.json());
 app.use(bp.urlencoded({extended : true}));
@@ -61,7 +63,8 @@ reload(app);
 
 //Routes
 app.use('/', routes);
-app.use('/', multer);  
+app.use('/', multer);
+app.use('/', nodemailer);  
 
 //Listner
 app.listen(1223, console.log("http://localhost:1223"));

@@ -71,13 +71,6 @@ app.post('/login', passport.authenticate('login', {
    })
 );
 
-//Forget route
-app.post('/forget', function (req, res) {
-    console.log(req.body);
-     req.flash('suc', "Password successfully changed !")
-    res.redirect('/login')
-})
-
 //Logged
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()){
