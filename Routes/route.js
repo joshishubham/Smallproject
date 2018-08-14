@@ -1,9 +1,9 @@
 //Node-modules
-var express       = require('express');
-var flash         = require('connect-flash');
-var passport      = require('passport');
-var bcrypt        = require('bcryptjs');
-var app           = express();
+var express= require('express');
+var flash= require('connect-flash');
+var passport= require('passport');
+var bcrypt= require('bcryptjs');
+var app= express();
 
 //Database & Passport Files
 var datas= require('../Database/data.js');

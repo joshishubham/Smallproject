@@ -2,24 +2,21 @@ var nodemailer= require('nodemailer');
 var express= require('express');
 var app = express();
 
-app.post('/forget', function (req, res) {
-    let transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
-        port: 587,
-        secure: false,
-        auth: {
-            user: 'uef5rbvubriubz7k@ethereal.email', 
-            pass: 'cN9ny1J7nMYCtPzd4s'
-        }
-    });
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: '123@gmail.com',  //Enter your gmail email address here 
+        pass: '@@@@@@@@@@'  //Enter your gmail password
+    }
+});
 
     // setup email data with unicode symbols
+app.post('/forget', function (req, res) { 
     let mailOptions = {
-        from: '"Fred Foo 👻" <foo@example.com>',
+        from: '"SmallProject" <foo@example.com>',
         to: req.body.Email,
-        subject: 'We have sent an OTP to your Email address. Please enter it below to complete verifications',
-        text: 'Hello world?',
-        html: '<a href = "http://localhost:1223/login">Password change</a>'
+        subject: 'Recovery code',
+        html: '<h3>We have sent an OTP to your Email address. Please enter it below to complete verifications.</h3> <a href = "http://localhost:1223/login">Password change</a>',
     };
 
     // send mail with defined transport object
@@ -28,11 +25,10 @@ app.post('/forget', function (req, res) {
             return console.log(error);
         }
         else{
-            res.redirect('/login')
+            res.redirect('/login#');
+            console.log(info);
         }
-        console.log('Message sent: %s', info.messageId);
-        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
     });
 });
 
-module.exports= app;
+ module.exports= app;

@@ -1,15 +1,15 @@
 // //Node-modules
-var passport 	    = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+var passport= require('passport');
+var LocalStrategy= require('passport-local').Strategy;
 
 //Database File
-var datas = require('../Database/data.js');
+var datas= require('../Database/data.js');
 
 // //Signup authentication
 passport.use('/sign', new LocalStrategy ({
-       usernameField : "Email",
-       passwordField : "Password",
-       passReqToCallback: true   
+    usernameField: "Email",
+    passwordField: "Password",
+    passReqToCallback: true   
 },
    function (req, Email, Password, done) { 
      
@@ -28,11 +28,11 @@ passport.use('/sign', new LocalStrategy ({
                 
           var data = new datas();
 
-            data.Gender = req.body.Gender;
-            data.Confirm  = req.body.Confirm;
-            data.Password = data.generateHash(Password);
-            data.Email    = Email;
-            data.Name     = req.body.Name;
+            data.Gender= req.body.Gender;
+            data.Confirm= req.body.Confirm;
+            data.Password= data.generateHash(Password);
+            data.Email= Email;
+            data.Name= req.body.Name;
 
               data.save(function (err) {
                   if (err) 
@@ -47,9 +47,9 @@ passport.use('/sign', new LocalStrategy ({
 
 //Login authentication
 passport.use('login', new LocalStrategy ({  
-       usernameField : "Email",
-       passwordField : "Password",
-       passReqToCallback: true 
+    usernameField: "Email",
+    passwordField: "Password",
+    passReqToCallback: true 
 },
    function(req, Email, Password,done){
 

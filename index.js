@@ -13,8 +13,8 @@ var nodemailer= require('nodemailer');
 var expressValidator= require('express-validator');
 var app= express();
 
-//Database, Routes &  Passport Files
-var datas= require("./Database/data.js");
+//Database, Routes, multer & nodemailer Files
+var datas= require('./Database/data.js');
 var routes= require('./Routes/route.js');
 var multer= require('./Multer/multer.js');
 var nodemailer= require('./Nodemailer/nodemailer.js');
@@ -27,7 +27,7 @@ mongoose.connect("mongodb://localhost:27017/datas", {
 
 //middleware 
 app.use(expressValidator());
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 app.use(flash());
 app.use(bp.json());
 app.use(bp.urlencoded({extended : true}));
