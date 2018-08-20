@@ -6,8 +6,8 @@ var datas= require('../Database/data.js');
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: '1234@gmail.com',  //Enter your gmail email address here 
-        pass: '@@@@@@@@@@'  //Enter your gmail password
+        user: '844@gmail.com',  //Enter your gmail email address here 
+        pass: '@@@@@'  //Enter your gmail password
     }
 });
 
@@ -21,7 +21,7 @@ app.post('/forget', function (req, res) {
                   throw err;
                     res.redirect('/login')
               } else {
-                  res.redirect('/')
+                  res.redirect('/otp');
                      console.log(data)
               }
           })
