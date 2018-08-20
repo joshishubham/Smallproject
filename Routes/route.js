@@ -26,6 +26,10 @@ app.get('/answer', isLoggedIn,function (req, res) {
     res.render('answer.ejs')
 });
 
+app.get('/password', function (req, res) {
+    res.render('password.ejs');   
+})
+
 //Passport Rotes
 app.get("/", function (req, res) {  
     res.render('sign.ejs', {

@@ -42,24 +42,17 @@
     margin-left: 11cm;
 }
 
-.btn{
-    margin-left: 5cm;
-}
-
-.btn-success{
-    margin-left: .2cm;
-}
-
 #for{
-    margin-left: 7cm;
+    margin-left: 8cm;
     line-height: 1cm;
 }
 
 #wrong{
+    position: absolute;
     font-size: 15px;
-
+    margin-top: 2.5cm;
+    margin-left: 11cm;
 }
-
 #wrong:hover{
      color: red
 }

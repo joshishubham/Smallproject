@@ -5,11 +5,12 @@ var bcrypt = require('bcryptjs');
 //Mongoose schema
 var Data = mongoose.Schema({
 
-	Name: {type : String, required: true}, 
-	Email: {type : String, required: true, index: {unique: true}}, 
-	Password: {type : String, required: true},
-	Confirm: {type : String, required: true},
-	Gender: {type : String, required: true}
+	Name: String,
+	Email: String, 
+	Password: String,
+	Confirm: String,
+	Gender: String,
+	Otp: String
 });
 
 Data.methods.generateHash  = function(Password) {
