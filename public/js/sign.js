@@ -63,7 +63,20 @@
                     }
                 }
 
-            }
+            },
+            // Otp validation
+            Otp: {
+                validators: {
+                   notEmpty: {
+                       message: "You can't leave this empty."
+                   },
+                   regexp:{
+                       regexp: '[1-9]',
+                       message: "Please enter number value"
+                   }
+               }
+
+           }
         }
     });
 });

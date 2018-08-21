@@ -17,6 +17,10 @@
     text-decoration: none;
 }
 
+a{
+    cursor: pointer;
+}
+
 #a{
     margin-left: -22cm;
 }

@@ -32,7 +32,7 @@ app.get('/password', function (req, res) {
 
 app.get('/otp', function (req, res) {
     res.render('otp.ejs');   
-})
+});
 
 //Passport Rotes
 app.get("/", function (req, res) {  

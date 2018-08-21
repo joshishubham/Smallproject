@@ -1,6 +1,10 @@
 var nodemailer= require('nodemailer');
 var express= require('express');
+var expressValidator= require('express-validator');
+var session= require('express-session');
 var app = express();
+
+//Database File
 var datas= require('../Database/data.js');
 
 let transporter = nodemailer.createTransport({
@@ -11,7 +15,7 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-// setup email data with unicode symbols
+// setup otp with unicode code
 app.post('/forget', function (req, res) { 
     var Otp= Math.floor(100000 + Math.random() * 900000);
 
@@ -44,10 +48,25 @@ app.post('/forget', function (req, res) {
             return console.log(error);
         }
         else{
-            res.send("Link send your email account")
             console.log(info);
         }
     });
+});
+
+//Routes for Otp matching
+app.post('/otp', function (req, res) {
+    req.checkBody('Otp', 'otp is required').notEmpty();
+    req.checkBody('Otp', 'Please enter number value').isNaN();
+
+        var error = req.validationErrors();
+            if (error) {
+                console.log(error)
+                res.redirect('/otp')
+            }
+            else{
+                 console.log("success");
+                  res.redirect('/password');
+            }
 });
 
  module.exports= app;
