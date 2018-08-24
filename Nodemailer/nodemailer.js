@@ -1,7 +1,6 @@
 var nodemailer= require('nodemailer');
 var express= require('express');
 var expressValidator= require('express-validator');
-var session= require('express-session');
 var app = express();
 
 //Database File
@@ -56,7 +55,7 @@ app.post('/forget', function (req, res) {
 //Routes for Otp matching
 app.post('/otp', function (req, res) {
     req.checkBody('Otp', 'otp is required').notEmpty();
-    req.checkBody('Otp', 'Please enter number value').isNaN();
+    req.checkBody('Otp', 'Please enter number value');
 
         var error = req.validationErrors();
             if (error) {
