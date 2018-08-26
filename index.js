@@ -67,4 +67,4 @@ app.use('/', multer);
 app.use('/', nodemailer);  
 
 //Listner
-app.listen(1223, console.log("http://localhost:1223"));
+app.listen(process.env.PORT || 1223, console.log("http://localhost:1223"));

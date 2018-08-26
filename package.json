@@ -23,7 +23,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "nodemon -e js,css,ejs,json, index.js"
+    "start": "node index.js, -e js,css,ejs,json"
   },
   "author": "",
   "license": "ISC"
