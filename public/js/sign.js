@@ -64,12 +64,24 @@
                 }
 
             },
+            Gender: {
+                validators: {
+                    notEmpty: {
+                        message: "You can't leave this empty."
+                    }
+                }
+            },
             // Otp validation
             Otp: {
                 validators: {
                    notEmpty: {
                        message: "You can't leave this empty."
                    },
+                   stringLength: {
+                    min: 6,
+                    max: 6, 
+                    message: 'Otp is six corrector long.'
+                },
                    regexp:{
                        regexp: '[1-9]',
                        message: "Please enter number value"

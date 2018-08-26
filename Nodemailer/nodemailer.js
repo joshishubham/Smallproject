@@ -1,7 +1,7 @@
 var nodemailer= require('nodemailer');
 var express= require('express');
 var expressValidator= require('express-validator');
-var app = express();
+var app= express();
 
 //Database File
 var datas= require('../Database/data.js');
@@ -9,25 +9,24 @@ var datas= require('../Database/data.js');
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: '844@gmail.com',  //Enter your gmail email address here 
-        pass: '@@@@@'  //Enter your gmail password
+        user: '844@gmail.com',  //Enter your email address here 
+        pass: '@@@@@'           //Enter your gmail password
     }
 });
 
 // setup otp with unicode code
 app.post('/forget', function (req, res) { 
-    var Otp= Math.floor(100000 + Math.random() * 900000);
-
-        var data= new datas({Otp});
-          data.save(function (err) {
-              if (err) {
-                  throw err;
-                    res.redirect('/login')
-              } else {
-                  res.redirect('/otp');
-                     console.log(data)
-              }
-          })
+  var Otp= Math.floor(100000 + Math.random() * 900000);
+    var data= new datas({Otp});
+        data.save(function (err) {
+            if (err) {
+                throw err;
+                res.redirect('/login')
+            } else {
+                res.redirect('/otp');
+                    console.log(data)
+            }
+        });
             
     let mailOptions = {
         from: '"TrialProject 👻" <trial@example.com>',
@@ -54,18 +53,19 @@ app.post('/forget', function (req, res) {
 
 //Routes for Otp matching
 app.post('/otp', function (req, res) {
-    req.checkBody('Otp', 'otp is required').notEmpty();
-    req.checkBody('Otp', 'Please enter number value');
-
-        var error = req.validationErrors();
-            if (error) {
-                console.log(error)
-                res.redirect('/otp')
-            }
-            else{
-                 console.log("success");
-                  res.redirect('/password');
-            }
+    req.checkBody('Otp', 'Otp is required.').notEmpty();
+    req.checkBody('Otp', 'Please enter number value.');
+    req.checkBody('Otp', 'Otp is six corrector long.');
+ 
+    var error = req.validationErrors();
+        if (error) {
+            console.log(error)
+            res.redirect('/otp')
+        }
+        else{
+            console.log("success");
+            res.redirect('/password');
+        }
 });
 
  module.exports= app;

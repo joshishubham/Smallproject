@@ -1,3 +1,4 @@
+/* Navigation bar css */
 .navbar {
 
     overflow: hidden;
@@ -41,14 +42,10 @@ a{
     background-color: #333;
 }
 
+/* Sign up & Log in page css */
 .col-sm-4{
     margin-top: 2cm;
     margin-left: 11cm;
-}
-
-#for{
-    margin-left: 8cm;
-    line-height: 1cm;
 }
 
 #wrong{
@@ -57,6 +54,7 @@ a{
     margin-top: 2.5cm;
     margin-left: 11cm;
 }
+
 #wrong:hover{
      color: red
 }
@@ -65,6 +63,17 @@ h4{
     word-spacing: 1.5cm;
 }
 
+/* #validtation{
+    -webkit-animation-duration: .2s
+} */
+
+/* Forget text css */
+#for{
+    margin-left: 8cm;
+    line-height: 1cm;
+}
+
+/* Otp css */
 #btn{
     background-color: #ff944d;
     color: white;
@@ -74,7 +83,3 @@ h4{
 #btn:hover{
     background-color: #ffa366;
 }
-
-/* #validtation{
-    -webkit-animation-duration: .2s
-} */

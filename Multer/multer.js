@@ -1,10 +1,10 @@
-var express = require('express');
-var multer  = require('multer');
-var app     = express();
+var express= require('express');
+var multer= require('multer');
+var app= express();
 
-var fileSize = Infinity;
+var fileSize= Infinity;
 
-var storage = multer.diskStorage({
+var storage= multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, './public/uploads/')
     },
@@ -14,7 +14,7 @@ var storage = multer.diskStorage({
 }
   });
 
-var upload = multer({
+var upload= multer({
     storage: storage,
     limits: {fileSize}
 }).single('Image');
