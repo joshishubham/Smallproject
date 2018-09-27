@@ -20,7 +20,6 @@ passport.use('/sign', new LocalStrategy ({
          }
 
          if (user) {
-
             return done(null, false, req.flash("err", "Email is already used !"));
             //return done(null, false, console.log( "Email is already used !"));
          }            
@@ -35,12 +34,12 @@ passport.use('/sign', new LocalStrategy ({
             data.Name= req.body.Name;
 
               data.save(function (err) {
-                  if (err) 
-                    throw err;
-                        
+                if (err){
+                  throw err;
+                }     
                   return done(null, data)
-                });            
-             } 
+              });            
+            } 
         });
     })
  );
@@ -57,8 +56,8 @@ passport.use('login', new LocalStrategy ({
 
            if (err) {
              return done(err)
-
            }
+           console.log(user);
 
            if (!user) {
               return done(null, false, req.flash("err", "No user found !"));
@@ -69,7 +68,6 @@ passport.use('login', new LocalStrategy ({
               return done(null, false, req.flash("err", "The password that you've entered is incorrect !"));
               //return done(null, false, console.log("The password that you've entered is incorrect. !"))
            }
-
              return done(null, user);
       });
     }

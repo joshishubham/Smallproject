@@ -10,7 +10,9 @@ var Data = mongoose.Schema({
 	Password: String,
 	Confirm: String,
 	Gender: String,
-	Otp: String
+	Otp: String,
+	Image: String,
+	registrationDate: {type: Date, default: Date.now}
 });
 
 Data.methods.generateHash  = function(Password) {

@@ -56,7 +56,7 @@ app.get('/profile', isLoggedIn, function(req, res) {
 });
 
 app.get('/forget', function (req, res) {     
-    res.render('forget.ejs')
+    res.render('otp.ejs')
 });
 
 app.get('/logout', isLoggedIn,function (req, res) {

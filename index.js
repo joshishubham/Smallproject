@@ -21,10 +21,8 @@ var nodemailer= require('./Nodemailer/nodemailer.js');
 
 //mongoose connections
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/datas", {
-	   useMongoClient: true
-});
-
+    mongoose.connect("mongodb://admin:admin1@ds211143.mlab.com:11143/datas", { useNewUrlParser: true });
+    
 //middleware 
 app.use(expressValidator());
 //app.use(morgan('dev'));

@@ -16,17 +16,25 @@ let transporter = nodemailer.createTransport({
 
 // setup otp with unicode code
 app.post('/forget', function (req, res) { 
-  var Otp= Math.floor(100000 + Math.random() * 900000);
-    var data= new datas({Otp});
-        data.save(function (err) {
+  req.checkBody("Email", "You can't leave this empty.").notEmpty();
+    var error= req.validationErrors();
+      if (error) {
+          console.log(error);
+            // return res.redirect('/login')
+      } 
+    else {
+       var Otp= Math.floor(100000 + Math.random() * 900000);
+        var data= new datas({Otp});
+          data.save(function (err) {
             if (err) {
-                throw err;
-                res.redirect('/login')
-            } else {
+                    throw err;
+            }
+            else {
                 res.redirect('/otp');
                     console.log(data)
             }
-        });
+        })
+    }
             
     let mailOptions = {
         from: '"TrialProject 👻" <trial@example.com>',
