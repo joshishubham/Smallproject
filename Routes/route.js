@@ -31,7 +31,9 @@ app.get('/password', function (req, res) {
 });
 
 app.get('/otp', function (req, res) {
-    res.render('otp.ejs');   
+    res.render('otp.ejs', {
+        error: req.flash('err')
+    });   
 });
 
 //Passport Rotes

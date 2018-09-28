@@ -46,7 +46,9 @@
 
 <form action= "/forget" method= "POST" id= "validtation">
 <div id= "demo" style= "display: none" class= "animated slideInDown">
-
+    <% if (error.length > 0) { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% } %>
 <div class="form-group">
 <label>Enter Email :</label><br>
 <input type= "text" name= "Email" class= "form-control" placeholder= "Enter your email." /><br>

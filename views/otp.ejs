@@ -10,9 +10,12 @@
 </head>
 <body>
   <% include navbar %><br>
-    <form class="col-sm-4" method="POST" action="/otp" id= "validtation" autocomplete="off">
+    <form class="col-sm-4" action="/checkOtp" method="POST" id= "validtation" autocomplete="off">
       <h1 id="change">Enter your otp</h1><hr> 
-
+      <% if (error.length > 0) { %>
+        <div class="alert alert-danger"><%= error %></div>
+      <% } %>
+      
       <div class="form-group">
         <label>Enter your otp : </label>
         <input type="text" placeholder="Enter your otp" name="Otp" class="form-control" />  
