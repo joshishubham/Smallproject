@@ -10,7 +10,7 @@ let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: '844@gmail.com',  //Enter your email address here 
-        pass: '@@@@@@@'           //Enter your gmail password
+        pass: '@@@@'           //Enter your gmail password
     }
 });
 
@@ -37,6 +37,7 @@ app.post('/forget', function (req, res, Email) {
             }
             else {
                res.redirect('/otp');
+                console.log(Otp)
             }
         });
 
@@ -57,7 +58,11 @@ app.post('/forget', function (req, res, Email) {
         if (error) {
             return console.log(error);
         }
-      })};
+        else{
+            console.log(info);
+        }
+      });
+     };
    });
 });
 

@@ -79,7 +79,7 @@
                    },
                    stringLength: {
                     min: 6,
-                    max: 6, 
+                    max: 9, 
                     message: 'Otp is six corrector long.'
                 },
                    regexp:{
